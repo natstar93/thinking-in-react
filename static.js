@@ -5,7 +5,7 @@ export const FilterableProductTable = React.createClass({
     return (
       <div>
         <SearchBar/>
-        <ProductTable/>
+        <ProductTable products={this.props.products}/>
       </div>
     );
   }
@@ -23,19 +23,21 @@ export const SearchBar = React.createClass({
 
 export const ProductTable = React.createClass({
   render: function() {
+      var categoryRows = [];
+      this.props.products.forEach(function(product){
+        categoryRows.push(<ProductCategoryRow category={product.category}/>)
+      })
       return (
-        <div>
-          <ProductCategoryRow/>
-          <ProductRow/>
-        </div>
+        <div>{categoryRows}</div>
      );
   }
 });
 
 export const ProductCategoryRow = React.createClass({
   render: function() {
+      var category = this.props.category;
       return (
-        <div></div>
+        <div>{category}</div>
       );
   }
 });
