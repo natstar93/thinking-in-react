@@ -1,0 +1,16 @@
+{
+  "name": "thinking-in-react",
+  "version": "1.0.0",
+  "description": "react practice",
+  "main": "2-static.js",
+  "dependencies": {
+    "react-dom": "^0.14.0-rc1",
+    "react": "^0.14.0-rc1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Natalie Akam",
+  "license": "ISC"
+}
