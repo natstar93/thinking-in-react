@@ -23,12 +23,17 @@ export const SearchBar = React.createClass({
 
 export const ProductTable = React.createClass({
   render: function() {
-      var categoryRows = [];
+      var rows = [];
+      var lastCategory = '';
       this.props.products.forEach(function(product){
-        categoryRows.push(<ProductCategoryRow category={product.category}/>)
+        if (product.category != lastCategory) {
+          rows.push(<ProductCategoryRow key={product.category} category={product.category}/>);
+          lastCategory = product.category;
+        }
+        rows.push(<ProductRow key={product.name} product={product}/>)
       })
       return (
-        <div>{categoryRows}</div>
+        <table><tbody>{rows}</tbody></table>
      );
   }
 });
@@ -37,15 +42,16 @@ export const ProductCategoryRow = React.createClass({
   render: function() {
       var category = this.props.category;
       return (
-        <div>{category}</div>
+        <tr>{category}</tr>
       );
   }
 });
 
 export const ProductRow = React.createClass({
   render: function() {
+      var product = this.props.product;
       return (
-        <div></div>
+        <tr>{product.name}</tr>
       );
   }
 });
