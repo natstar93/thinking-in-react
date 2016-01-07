@@ -12,7 +12,7 @@ export const FilterableProductTable = React.createClass({
 });
 
 export const SearchBar = React.createClass({
-  render: function() {
+  render() {
         return (
           <div>
             <input type="search" placeholder="Search..." />
@@ -22,9 +22,9 @@ export const SearchBar = React.createClass({
 });
 
 export const ProductTable = React.createClass({
-  render: function() {
-      var rows = [];
-      var lastCategory = '';
+  render() {
+      const rows = [];
+      let lastCategory = '';
       this.props.products.forEach(function(product){
         if (product.category != lastCategory) {
           rows.push(<ProductCategoryRow key={product.category} category={product.category}/>);
@@ -39,19 +39,24 @@ export const ProductTable = React.createClass({
 });
 
 export const ProductCategoryRow = React.createClass({
-  render: function() {
-      var category = this.props.category;
+  render() {
+      const category = this.props.category;
       return (
-        <tr>{category}</tr>
+        <tr>
+          <th colSpan={2}>{category}</th>
+        </tr>
       );
   }
 });
 
 export const ProductRow = React.createClass({
-  render: function() {
-      var product = this.props.product;
+  render() {
+      const product = this.props.product;
       return (
-        <tr>{product.name}</tr>
+        <tr>
+          <td>{product.name}</td>
+          <td>{product.price}</td>
+        </tr>
       );
   }
 });
