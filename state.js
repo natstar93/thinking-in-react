@@ -5,9 +5,11 @@ export const FilterableProductTable = React.createClass({
     return {filterText: '', inStockOnly: true};
   },
   render() {
+    const { filterText, inStockOnly } = this.state;
+
     return (
       <div>
-        <SearchBar/>
+        <SearchBar filterText={filterText} inStockOnly={inStockOnly} />
         <ProductTable products={this.props.products}/>
       </div>
     );
@@ -16,9 +18,15 @@ export const FilterableProductTable = React.createClass({
 
 export const SearchBar = React.createClass({
   render() {
+        const { filterText, inStockOnly } = this.state;
+
         return (
           <div>
-            <input type="search" placeholder="Search..."/>
+            <input type="search" placeholder="Search..." value={filterText}/>
+            <label>
+              <input type="checkbox" value={inStockOnly}/>
+              Only show products that are in stock
+            </label>
           </div>
         );
     }
