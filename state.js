@@ -18,7 +18,7 @@ export const FilterableProductTable = React.createClass({
 
 export const SearchBar = React.createClass({
   render() {
-        const { filterText, inStockOnly } = this.state;
+        const { filterText, inStockOnly } = this.props;
 
         return (
           <div>
