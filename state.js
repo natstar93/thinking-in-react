@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import classnames from 'classnames';
 
 export const FilterableProductTable = React.createClass({
   getInitialState() {
@@ -41,13 +42,14 @@ export const ProductTable = React.createClass({
       products.filter((product) => {
         const stockCondition = !inStockOnly || inStockOnly && product.stocked;
         const nameCondition = product.name.indexOf(filterText);
-        
+
         return stockCondition && nameCondition;
       }).forEach((product) => {
         if (product.category != lastCategory) {
           rows.push(<ProductCategoryRow key={product.category} category={product.category}/>);
           lastCategory = product.category;
         }
+
         rows.push(<ProductRow key={product.name} product={product}/>)
       })
       return (
@@ -61,6 +63,7 @@ export const ProductTable = React.createClass({
 export const ProductCategoryRow = React.createClass({
   render() {
       const category = this.props.category;
+
       return (
         <tr>
           <th colSpan={2}>{category}</th>
@@ -72,9 +75,13 @@ export const ProductCategoryRow = React.createClass({
 export const ProductRow = React.createClass({
   render() {
       const product = this.props.product;
+      const classname = classnames(
+        { 'outOfStock': !product.stocked }
+      );
+
       return (
         <tr>
-          <td>{product.name}</td>
+          <td className={classname}>{product.name}</td>
           <td>{product.price}</td>
         </tr>
       );

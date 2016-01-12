@@ -4,8 +4,9 @@
   "description": "react practice",
   "main": "2-static.js",
   "dependencies": {
-    "react-dom": "^0.14.0-rc1",
-    "react": "^0.14.0-rc1"
+    "classnames": "^2.2.3",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1"
   },
   "devDependencies": {},
   "scripts": {
