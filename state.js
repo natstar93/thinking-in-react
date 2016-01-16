@@ -30,9 +30,9 @@ export const SearchBar = React.createClass({
 
         return (
           <div>
-            <input type="search" onChange={this.handleChange} placeholder="Search..." value={filterText}/>
+            <input type="search" ref='filterTextInput' onChange={this.handleChange} placeholder="Search..." value={filterText}/>
             <label>
-              <input type="checkbox" value={inStockOnly}/>
+              <input type="checkbox" ref='inStockOnlyInput' value={inStockOnly}/>
               Only show products that are in stock
             </label>
           </div>
