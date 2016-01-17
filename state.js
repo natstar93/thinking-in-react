@@ -5,7 +5,7 @@ export const FilterableProductTable = React.createClass({
   getInitialState() {
     return {
       filterText: '',
-      inStockOnly: true
+      inStockOnly: false
     };
   },
   handleUserInput(filterText, inStockOnly) {
@@ -32,7 +32,6 @@ export const SearchBar = React.createClass({
       this.refs.filterTextInput.value,
       this.refs.inStockOnlyInput.checked
     )
-    console.log(this.refs.filterTextInput.value);
   },
   render() {
         const { filterText, inStockOnly, onUserInput } = this.props;
